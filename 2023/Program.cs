@@ -26,5 +26,8 @@ internal class Program
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(PuzzleHelper.GetPuzzleTitle("2019", "1")); //change the year when doing different years
         Console.ForegroundColor = ConsoleColor.Green;
+
+        var day = new Day2.Day2();
+        Console.WriteLine(day);
     }
 }

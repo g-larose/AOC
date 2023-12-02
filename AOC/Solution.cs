@@ -11,6 +11,9 @@ namespace AOC
 {
     public class Solution
     {
+        const string Baseurl = $"https://adventofcode.com/2023/day";
+        const string InputSuffix = "input";
+        private static string session = GetSecretJson();
         public int Day { get; private set; }
         public int Year { get; private set; }
         public string Input { get; set; }
@@ -25,7 +28,7 @@ namespace AOC
 
         private static string GetSecretJson()
         {
-            var configFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Utils", "secret.json");
+            var configFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "secret.json");
             using var fs = File.OpenRead(configFile);
             using var sr = new StreamReader(fs, new UTF8Encoding(false));
             var json = sr.ReadToEnd();
@@ -37,12 +40,9 @@ namespace AOC
 
         string GetInput(int year, int day)
         {
-            string Baseurl = $"https://adventofcode.com/{year}/day";
-            string InputSuffix = "input";
-            string session = GetSecretJson();
-
-        Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Year.ToString(), $"Day{Day}"));
-            string cachedFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Year.ToString(), $"Day{day}", "input.txt");
+            
+            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Day{Day}"));
+            string cachedFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Day{day}", "input.txt");
 
             if (File.Exists(cachedFile)) return File.ReadAllText(cachedFile);
             else

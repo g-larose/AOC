@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AOC_2023.Extensions;
+namespace AOC.Extensions;
 
 public static class Extensions
 {

@@ -1,5 +1,5 @@
 ﻿using AOC;
-using AOC_2023.Extensions;
+using AOC.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
