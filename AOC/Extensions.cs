@@ -113,5 +113,22 @@ public static class Extensions
 
         return result;
     }
+
+    public static IEnumerable<string> SplitByASCIIWhiteSpace(this string contents)
+    {
+        int previousIndex = 0;
+        int ix = contents.IndexOf(' ');
+        while (ix >= 0)
+        {
+            yield return contents.Substring(previousIndex, ix - previousIndex);
+            do
+            {
+                previousIndex = ix + 1;
+                ix = contents.IndexOf(' ', previousIndex);
+            } while (ix == previousIndex);
+        }
+        string remain = contents.Substring(previousIndex);
+        if (!string.IsNullOrEmpty(remain)) yield return remain;
+    }
 }
 

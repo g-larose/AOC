@@ -15,7 +15,7 @@ public class Day1 : Solution
     public int PartOne()
     {
         var input = Input.SplitBy(Environment.NewLine);
-        var regex = new Regex(@"^\d+$");
+        //var pattern = new Regex(@"^\d+$");
         var digits = new List<int>();
         List<string> numsBeforeSum = new();
         var result = 0;
@@ -26,7 +26,7 @@ public class Day1 : Solution
             //TODO: this is also bad.
             foreach (var c in item)
             {
-                if (char.IsDigit(c))
+                if (char.IsAsciiDigit(c))
                 {
                     var num = c.ToString();
                     numsBeforeSum.Add(num);

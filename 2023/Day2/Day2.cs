@@ -53,7 +53,7 @@ namespace _2023.Day2
                     g.sets.Max(s => s.GetValueOrDefault("blue", 1)))
                 .Sum()
                 .ToString();
-
+            Console.WriteLine($"part 1: {part1}\npart 2: {part2}");
             return (part1, part2);
         }
     }
